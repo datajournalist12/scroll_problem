@@ -1,0 +1,28 @@
+
+<div class="whole_thing" cdkDropListGroup>
+
+  <div class="example-container">
+    <h2>To do (CDK virtual scroll)</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <cdk-virtual-scroll-viewport itemSize="62" class="example-viewport">
+        <div class="example-box" *cdkVirtualFor="let item of todo" cdkDrag>{{item}}</div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done (regular scroll)</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+  </div>
